@@ -12,7 +12,6 @@ def demangle(symbol):
     except Exception:
         pass
 
-    # try demangle rust
     try:
         res = subprocess.run(['rustfilt'], input=symbol.encode(),
                              stdout=subprocess.PIPE,
@@ -24,7 +23,6 @@ def demangle(symbol):
     except Exception:
         pass
 
-    # continue to add more demanglers here if needed
 
     # return original if no demangling succeeded
     return symbol
